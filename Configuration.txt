@@ -327,6 +327,13 @@ def passwordEcho(self):
 # Add button click inside class Ui
 self.passwordEchoTypeButton.clicked.connect(self.passwordEcho)
 
+Now test the passwordEchoType button to show and hide the password
+
+Label Alert:
+objectName (alertLine)
+Position (280, 110)
+Size (271, 17)
+
 # Configuration Alert
 def alert(self, type, message):
                 if type == "warning":
