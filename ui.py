@@ -4,13 +4,12 @@ import json
 import string
 import random
 
-from data import *
-
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
 
 
+# Load Ui
 class Ui(QMainWindow):
         def __init__(self):
                 super(Ui, self).__init__()
@@ -23,7 +22,7 @@ class Ui(QMainWindow):
 
                 self.show()
 
-        # Password Generator
+        # Password Generator Button
         def generateRandomPassword(self):
                 lower = string.ascii_lowercase
                 upper = string.ascii_uppercase
@@ -38,12 +37,11 @@ class Ui(QMainWindow):
 
                 self.passwordLine.setText(password)
 
-                # data = Data(password=password)
-
                 # Debug
                 # print(data.password)
-                print(password)
+                # print(password)
 
+        # Save Button
         def save(self):
                 web = self.websiteLine.text()
                 email = self.emailLine.text()
@@ -93,6 +91,7 @@ class Ui(QMainWindow):
                         self.websiteLine.clear()
                         self.passwordLine.clear()      
                 
+        # Search Button
         def search(self):
                 web = self.websiteLine.text()
 
@@ -100,6 +99,7 @@ class Ui(QMainWindow):
                         self.alert("warning", "Please fill out the website field.")
                         return
 
+        # Alert
         def alert(self, type, message):
                 if type == "warning":
                         self.alertLine.setStyleSheet("color: rgb(255, 70, 70);")
