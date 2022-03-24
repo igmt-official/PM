@@ -110,6 +110,7 @@ class Ui(QMainWindow):
                         self.alertLine.setText(message)
 
 
+# Show Ui
 app = QApplication(sys.argv)
 ui = Ui()
 ui.setFixedSize(570, 420)
