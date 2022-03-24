@@ -6,8 +6,8 @@ import random
 
 # PyQt5 Classes
 from PyQt5.uic import loadUi
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
+from PyQt5 import QtWidgets, QtGui
+from PyQt5.QtWidgets import QMainWindow, QApplication, QLineEdit
 
 
 # Load Ui
@@ -20,6 +20,7 @@ class Ui(QMainWindow):
                 self.generateButton.clicked.connect(self.generateRandomPassword)
                 self.saveButton.clicked.connect(self.save)
                 self.searchButton.clicked.connect(self.search)
+                self.passwordType.clicked.connect(self.passwordEcho)
 
                 self.show()
 
@@ -74,10 +75,11 @@ class Ui(QMainWindow):
                                 self.alert("success", "Data Successfully Added.")
 
                 else:
-                        if self.websiteLine.text() in data_file:
-                                self.alert("success", "Password Successfully Update.")
+                        if self.websiteLine.text() not in data_file:
+                                self.alert("success", "Data successfully added.")
+                                
                         else:
-                                self.alert("success", "Data Successfully Added.")
+                                self.alert("success", "Password successfully update.")
                                 
                         # Updating old data to new data
                         data_file.update(new_data)
@@ -99,6 +101,31 @@ class Ui(QMainWindow):
                 if web == "":
                         self.alert("warning", "Please fill out the website field.")
                         return
+
+                try:
+                        # Append new data in json file
+                        with open("./data.json", "r") as data:
+                                # Reading the old data
+                                data_file = json.load(data)
+
+                except FileNotFoundError:
+                        self.alert("warning", "No data found.")
+
+                else:
+                        if web not in data_file:
+                                self.alert("warning", "Data is not exist.")
+                        
+                        else:
+                                self.emailLine.setText(data_file[web]["email"])
+                                self.passwordLine.setText(data_file[web]["password"])
+                                
+        def passwordEcho(self):
+                if self.passwordLine.echoMode() == QLineEdit.Password:
+                        self.passwordLine.setEchoMode(QLineEdit.Normal)
+                        self.passwordType.setIcon(QtGui.QIcon("img/eye.png"))
+                else:
+                        self.passwordLine.setEchoMode(QLineEdit.Password)
+                        self.passwordType.setIcon(QtGui.QIcon("img/hidden.png"))
 
         # Alert
         def alert(self, type, message):
