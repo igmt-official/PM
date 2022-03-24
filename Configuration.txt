@@ -61,6 +61,11 @@ Font (Poppins: Bold, 15)
 
 color: rgb(219, 219, 219);
 
+Label Alert:
+objectName (alertLine)
+Position (280, 110)
+Size (271, 17)
+
 Input Website:
 objectName (websiteLine)
 Position (280, 140)
@@ -329,11 +334,6 @@ self.passwordEchoTypeButton.clicked.connect(self.passwordEcho)
 
 Now test the passwordEchoType button to show and hide the password
 
-Label Alert:
-objectName (alertLine)
-Position (280, 110)
-Size (271, 17)
-
 # Configuration Alert
 def alert(self, type, message):
                 if type == "warning":
@@ -342,4 +342,3 @@ def alert(self, type, message):
                 elif type == "success":
                         self.alertLine.setStyleSheet("color: rgb(85, 255, 127);")
                         self.alertLine.setText(message)
-

@@ -20,7 +20,7 @@ class Ui(QMainWindow):
                 self.generateButton.clicked.connect(self.generateRandomPassword)
                 self.saveButton.clicked.connect(self.save)
                 self.searchButton.clicked.connect(self.search)
-                self.passwordType.clicked.connect(self.passwordEcho)
+                self.passwordEchoType.clicked.connect(self.passwordEcho)
 
                 self.show()
 
@@ -72,11 +72,11 @@ class Ui(QMainWindow):
                                 # Saving updated data
                                 json.dump(new_data, data, indent=4)
 
-                                self.alert("success", "Data Successfully Added.")
+                                self.alert("success", f"{web} Successfully Added.")
 
                 else:
                         if web not in data_file:
-                                self.alert("success", "Data successfully added.")
+                                self.alert("success", f"{web} successfully added.")
                                 
                         else:
                                 if password not in data_file[web]["password"] and email not in data_file[web]["email"]:
@@ -130,19 +130,19 @@ class Ui(QMainWindow):
         def passwordEcho(self):
                 if self.passwordLine.echoMode() == QLineEdit.Password:
                         self.passwordLine.setEchoMode(QLineEdit.Normal)
-                        self.passwordType.setIcon(QtGui.QIcon("img/eye.png"))
+                        self.passwordEchoType.setIcon(QtGui.QIcon("img/eye.png"))
                 else:
                         self.passwordLine.setEchoMode(QLineEdit.Password)
-                        self.passwordType.setIcon(QtGui.QIcon("img/hidden.png"))
+                        self.passwordEchoType.setIcon(QtGui.QIcon("img/hidden.png"))
 
         # Alert
         def alert(self, type, message):
                 if type == "warning":
-                        self.alertLine.setStyleSheet("color: rgb(255, 70, 70);")
-                        self.alertLine.setText(message)
+                        self.pmAlert.setStyleSheet("color: rgb(255, 70, 70);")
+                        self.pmAlert.setText(message)
                 elif type == "success":
-                        self.alertLine.setStyleSheet("color: rgb(85, 255, 127);")
-                        self.alertLine.setText(message)
+                        self.pmAlert.setStyleSheet("color: rgb(85, 255, 127);")
+                        self.pmAlert.setText(message)
 
 
 # Show Ui

@@ -334,7 +334,7 @@ QPushButton#saveButton:hover{
      <string>Save</string>
     </property>
    </widget>
-   <widget class="QLabel" name="alertLine">
+   <widget class="QLabel" name="pmAlert">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -361,7 +361,7 @@ QPushButton#saveButton:hover{
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="passwordType">
+   <widget class="QPushButton" name="passwordEchoType">
     <property name="geometry">
      <rect>
       <x>530</x>
