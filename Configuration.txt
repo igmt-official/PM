@@ -253,6 +253,7 @@ self.generateButton.clicked.connect(self.generateRandomPassword)
                                 self.alert("success", "Data Successfully Added.")
 
                 else:
+                        # Last Configuration
                         if web not in data_file:
                                 self.alert("success", "Data successfully added.")
                                 
