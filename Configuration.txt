@@ -279,4 +279,34 @@ self.generateButton.clicked.connect(self.generateRandomPassword)
                 finally:
                         # Delete all value of input after adding on database
                         self.websiteLine.clear()
-                        self.passwordLine.clear()      
+                        self.passwordLine.clear()
+
+# Add button click inside class Ui
+self.saveButton.clicked.connect(self.save)
+
+# Configuration Search Button
+def search(self):
+                web = self.websiteLine.text()
+
+                # Last Configuration
+                if web == "":
+                        self.alert("warning", "Please fill out the website field.")
+                        return
+
+                try:
+                        # Append new data in json file
+                        with open("./data.json", "r") as data:
+                                # Reading the old data
+                                data_file = json.load(data)
+
+                except FileNotFoundError:
+                        self.alert("warning", "No data found.")
+
+                else:
+                        if web not in data_file:
+                                # Last Configuration
+                                self.alert("warning", "Data is not exist.")
+                        
+                        else:
+                                self.emailLine.setText(data_file[web]["email"])
+                                self.passwordLine.setText(data_file[web]["password"])
