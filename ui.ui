@@ -371,7 +371,7 @@ QPushButton#saveButton:hover{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton#passwordType:pressed{
+     <string notr="true">QPushButton#passwordEchoType:pressed{
 	 background-color: transparent;
 }</string>
     </property>
