@@ -4,6 +4,7 @@ import json
 import string
 import random
 
+# PyQt5 Classes
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
