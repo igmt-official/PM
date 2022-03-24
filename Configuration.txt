@@ -300,6 +300,7 @@ def search(self):
                                 data_file = json.load(data)
 
                 except FileNotFoundError:
+                        # Last Configuration
                         self.alert("warning", "No data found.")
 
                 else:
@@ -313,3 +314,25 @@ def search(self):
 
 # Add button click inside class Ui
 self.searchButton.clicked.connect(self.search)
+
+# Configuration Password Echo Type 
+def passwordEcho(self):
+                if self.passwordLine.echoMode() == QLineEdit.Password:
+                        self.passwordLine.setEchoMode(QLineEdit.Normal)
+                        self.passwordType.setIcon(QtGui.QIcon("img/eye.png"))
+                else:
+                        self.passwordLine.setEchoMode(QLineEdit.Password)
+                        self.passwordType.setIcon(QtGui.QIcon("img/hidden.png"))
+
+# Add button click inside class Ui
+self.passwordEchoTypeButton.clicked.connect(self.passwordEcho)
+
+# Configuration Alert
+def alert(self, type, message):
+                if type == "warning":
+                        self.alertLine.setStyleSheet("color: rgb(255, 70, 70);")
+                        self.alertLine.setText(message)
+                elif type == "success":
+                        self.alertLine.setStyleSheet("color: rgb(85, 255, 127);")
+                        self.alertLine.setText(message)
+
