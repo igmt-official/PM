@@ -1,0 +1,165 @@
+# Setting Up Folder and Resources
+cd Dev
+mkdir password-manager && cd password-manager
+mkdir img
+
+cp Downloads/logo.png Dev/password-manager/img/
+cp Downloads/show.png Dev/password-manager/img/
+cp Downloads/hidden.png Dev/password-manager/img/
+
+# PM Gui Design
+# Configuration Window
+Main Window:
+Size (570, 420)
+Font (Poppins)
+
+QWidget:
+Size (570, 420)
+Font (Poppins)
+
+# Configuration Background
+Label DarkBg:
+objectName (darkBg)
+Size (260, 420)
+
+background-color: rgb(32, 32, 35);
+
+Label LightBg:
+objectName (LightBg)
+Size (311, 420)
+
+background-color: rgb(49, 49, 52);
+
+# Configuration DarkBg
+Label Logo:
+objectName (pmLogo)
+Position (100, 50)
+Size (60, 60)
+pixmap (logo.png)
+scaledContents (Check)
+
+Label Version:
+objectName (pmVersion)
+Position (20, 160)
+Size (61, 17)
+Font (Poppins: Bold, 12)
+
+Label About:
+objectName (pmAbout)
+Position (20, 190)
+Size (211, 191)
+Font (Poppins)
+
+color: rgb(219, 219, 219);
+
+# Configuration LightBg
+Label Title:
+objectName (pmTitle)
+Position (280, 70)
+Size (31, 17)
+Font (Poppins: Bold, 15)
+
+color: rgb(219, 219, 219);
+
+Input Website:
+objectName (websiteLine)
+Position (280, 140)
+Size (271, 25)
+placeholderText (Website)
+
+background-color: rgb(49, 49, 52);
+border:2px solid rgba(49, 49, 52);
+border-bottom-color:rgba(129,230,217,255);
+color: rgb(255, 255, 255);
+padding-bottom:7px;
+
+Input Email:
+objectName (emailLine)
+Position (280, 180)
+Size (271, 25)
+placeholderText (Email/User Name)
+
+background-color: rgb(49, 49, 52);
+border:2px solid rgba(49, 49, 52);
+border-bottom-color:rgba(129,230,217,255);
+color: rgb(255, 255, 255);
+padding-bottom:7px;
+
+Button Search:
+objectName (searchButton)
+Position (280, 220)
+Size (271, 25)
+Text (Search)
+
+QPushButton#searchButton{
+	background-color: rgb(117,  214,  209);
+	color:rgb(36,36,36);
+	border-radius:5px;
+    }
+QPushButton#searchButton:pressed{
+     padding-left:5px;
+     padding-top:5px;
+     background-position:calc(100% - 10px)center;
+     }
+QPushButton#searchButton:hover{
+     background-color:rgba(174,  235,  232);
+     }
+
+Input Password:
+objectName (passwordLine)
+Position (280, 280)
+Size (271, 25)
+placeholderText (Password)
+
+Button Password:
+objectName (passwordEchoType)
+Position (530, 280)
+Size (16, 16)
+Icon (hidden.png)
+Flat (True)
+
+QPushButton#passwordType:pressed{
+	 background-color: transparent;
+}
+
+Button Generate:
+objectName (generateButton)
+Position (280, 320)
+Size (131, 25)
+Text (Generate)
+
+QPushButton#generateButton{
+	background-color: rgb(117,  214,  209);
+	color:rgb(36,36,36);
+	border-radius:5px;
+    }
+QPushButton#generateButton:pressed{
+     padding-left:5px;
+     padding-top:5px;
+     background-position:calc(100% - 10px)center;
+     }
+QPushButton#generateButton:hover{
+     background-color:rgba(174,  235,  232);
+     }
+
+Button Save:
+objectName (saveButton)
+Position (420, 320)
+Size (131, 25)
+Text (Save)
+
+QPushButton#saveButton{
+	background-color: rgb(117,  214,  209);
+	color:rgb(36,36,36);
+	border-radius:5px;
+    }
+QPushButton#saveButton:pressed{
+     padding-left:5px;
+     padding-top:5px;
+     background-position:calc(100% - 10px)center;
+     }
+QPushButton#saveButton:hover{
+     background-color:rgba(174,  235,  232);
+     }
+
+Now Control + R to test the Gui
