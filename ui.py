@@ -19,6 +19,7 @@ class Ui(QMainWindow):
                 # Button
                 self.generateButton.clicked.connect(self.generateRandomPassword)
                 self.saveButton.clicked.connect(self.save)
+                self.searchButton.clicked.connect(self.search)
 
                 self.show()
 
@@ -49,7 +50,7 @@ class Ui(QMainWindow):
                 password = self.passwordLine.text()
 
                 if web == "" or email == "" or password == "":
-                        self.warningLine.setText("Please fill out the blank.")
+                        self.alert("warning", "Please fill out the blank.")
                         return
 
                 new_data = {
@@ -67,13 +68,22 @@ class Ui(QMainWindow):
 
                 except FileNotFoundError:
                         with open("./data.json", "w") as data:
+                                        
                                 # Saving updated data
                                 json.dump(new_data, data, indent=4)
 
+                                self.alert("success", "Data Successfully Added.")
+
                 else:
+                        if self.websiteLine.text() in data_file:
+                                self.alert("success", "Password Successfully Update.")
+                        else:
+                                self.alert("success", "Data Successfully Added.")
+                                
                         # Updating old data to new data
                         data_file.update(new_data)
                         with open("./data.json", "w") as data:
+
                                 # Saving updated data
                                 json.dump(data_file, data, indent=4)
 
@@ -82,9 +92,21 @@ class Ui(QMainWindow):
                         # Delete all value of input after adding on database
                         self.websiteLine.clear()
                         self.passwordLine.clear()      
-
-                self.warningLine.setText("")
                 
+        def search(self):
+                web = self.websiteLine.text()
+
+                if web == "":
+                        self.alert("warning", "Please fill out the website field.")
+                        return
+
+        def alert(self, type, message):
+                if type == "warning":
+                        self.alertLine.setStyleSheet("color: rgb(255, 70, 70);")
+                        self.alertLine.setText(message)
+                elif type == "success":
+                        self.alertLine.setStyleSheet("color: rgb(85, 255, 127);")
+                        self.alertLine.setText(message)
 
 
 app = QApplication(sys.argv)

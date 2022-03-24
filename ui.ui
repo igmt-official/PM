@@ -334,12 +334,12 @@ QPushButton#saveButton:hover{
      <string>Save</string>
     </property>
    </widget>
-   <widget class="QLabel" name="warningLine">
+   <widget class="QLabel" name="alertLine">
     <property name="geometry">
      <rect>
       <x>280</x>
       <y>110</y>
-      <width>151</width>
+      <width>271</width>
       <height>17</height>
      </rect>
     </property>
@@ -349,7 +349,7 @@ QPushButton#saveButton:hover{
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 70, 70);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
