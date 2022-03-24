@@ -310,3 +310,6 @@ def search(self):
                         else:
                                 self.emailLine.setText(data_file[web]["email"])
                                 self.passwordLine.setText(data_file[web]["password"])
+
+# Add button click inside class Ui
+self.searchButton.clicked.connect(self.search)
