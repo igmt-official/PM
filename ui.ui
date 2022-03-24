@@ -166,7 +166,7 @@
      <string>PM</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="websiteLine">
+   <widget class="QLineEdit" name="webLine">
     <property name="geometry">
      <rect>
       <x>280</x>
