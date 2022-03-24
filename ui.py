@@ -75,11 +75,19 @@ class Ui(QMainWindow):
                                 self.alert("success", "Data Successfully Added.")
 
                 else:
-                        if self.websiteLine.text() not in data_file:
+                        if web not in data_file:
                                 self.alert("success", "Data successfully added.")
                                 
                         else:
-                                self.alert("success", "Password successfully update.")
+                                if password not in data_file[web]["password"] and email not in data_file[web]["email"]:
+                                        self.alert("success", f"{web} successfully update.")
+                                elif password not in data_file[web]["password"]:
+                                        self.alert("success", "Password successfully update.")
+                                elif email not in data_file[web]["email"]:
+                                        self.alert("success", "Email successfully update.")
+                                else:
+                                        self.alert("success", "No data changed.")
+
                                 
                         # Updating old data to new data
                         data_file.update(new_data)
